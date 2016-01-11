@@ -323,7 +323,7 @@ var webSales = {
     for (i = 10; i < (10 + this.cupsArray.length - 1); i++) { // Print number of cups/pounds needed into unordered list within ul tags
       var entry = document.createElement('li');
       if (i < 12) {
-        entry.textContent = i + ':00AM - ' + (Math.round(((this.cupsArray[i - 10] / 20) + this.lbsArray[i - 10]) * 10) / 10) + ' lbs [' + this.custNum[i - 10] + ' customers, ' + this.cupsArray[i - 10] + ' cups (' + Math.round((this.cupsArray[i - 10] / 20) * 10) / 10 + ' lbs), ' + this.lbsArray[i - 10] + ' lbs to-go];
+        entry.textContent = i + ':00AM - ' + (Math.round(((this.cupsArray[i - 10] / 20) + this.lbsArray[i - 10]) * 10) / 10) + ' lbs [' + this.custNum[i - 10] + ' customers, ' + this.cupsArray[i - 10] + ' cups (' + Math.round((this.cupsArray[i - 10] / 20) * 10) / 10 + ' lbs), ' + this.lbsArray[i - 10] + ' lbs to-go]';
         document.body.appendChild(entry);
       } else {
         entry.textContent = i - 10 + ':00PM - ' + (Math.round(((this.cupsArray[i - 10] / 20) + this.lbsArray[i - 10]) * 10) / 10) + ' lbs [' + this.custNum[i - 10] + ' customers, ' + this.cupsArray[i - 10] + ' cups (' + Math.round((this.cupsArray[i - 10] / 20) * 10) / 10 + ' lbs), ' + this.lbsArray[i - 10] + ' lbs to-go]';
