@@ -1,0 +1,11 @@
+.shopTable {
+  border: 2px solid black;
+  padding: 2px;
+}
+.headerItem {
+  border: 1px solid black;
+  text-align: center;
+  width: 150px;
+  font-weight: bold;
+  font-family: Garamond;
+}
