@@ -1,0 +1,17 @@
+.shopTable {
+  border: 2px solid black;
+  padding: 2px;
+}
+.headerItem {
+  background-color: #F0F0F0;
+  border: 1px solid black;
+  text-align: center;
+  width: 150px;
+  font-weight: bold;
+  font-family: Garamond;
+}
+.tableItem {
+  background-color: #F8F8F8;
+  text-align: right;
+  font-style: italic;
+}
