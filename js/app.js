@@ -190,26 +190,25 @@ newShop.submitForm = function() { // Creates a new coffee shop with values store
 };
 
 
+newShop.render();
 globalRender1();
 globalRender();
-newShop.render();
-
 
 
 var pikePlace = new coffeeShop('pikePlace', 'Pike Place Market', 14, 55, 1.2, 3.7);
 pikePlace.printShop();
 
-// var capitolHill = new coffeeShop('capitolHill', 'Capitol Hill', 32, 38, 3.2, 0.7);
-// capitolHill.printShop();
-//
-// var seattlePub = new coffeeShop('seattlePub', 'Seattle Public Library', 49, 75, 2.6, 0.2);
-// seattlePub.printShop();
-//
-// var southLake = new coffeeShop('southLake', 'South Lake Union', 35, 88, 1.3, 3.7);
-// southLake.printShop();
-//
-// var seaTac = new coffeeShop('seaTac', 'SeaTac Airport', 68, 124, 1.1, 2.7);
-// seaTac.printShop();
-//
-// var webSales = new coffeeShop('webSales', 'Website Sales', 3, 6, 0, 6.7);
-// webSales.printShop();
+var capitolHill = new coffeeShop('capitolHill', 'Capitol Hill', 32, 38, 3.2, 0.7);
+capitolHill.printShop();
+
+var seattlePub = new coffeeShop('seattlePub', 'Seattle Public Library', 49, 75, 2.6, 0.2);
+seattlePub.printShop();
+
+var southLake = new coffeeShop('southLake', 'South Lake Union', 35, 88, 1.3, 3.7);
+southLake.printShop();
+
+var seaTac = new coffeeShop('seaTac', 'SeaTac Airport', 68, 124, 1.1, 2.7);
+seaTac.printShop();
+
+var webSales = new coffeeShop('webSales', 'Website Sales', 3, 6, 0, 6.7);
+webSales.printShop();
