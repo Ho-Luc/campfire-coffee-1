@@ -1,57 +1,42 @@
-// Campfire-Coffee Index javascript
+// Index page javascript
 
-var header = {
-  menu : [['index.html', 'images/home.gif', 'images/homeOver.gif'], ['data.html', 'images/data.gif', 'images/dataOver.gif'], ['contact.html', 'images/contact.gif', 'images/contactOver.gif']],
-  menuImage : [],
-}
+var announcements = {
 
-header.render = function() {
+  stories: [['Campfire-Coffee reaches 1 million sales', 'images/million.gif', 'We sold a million cups of coffee! Yay, we\'re rich!', '4:00PM - January 13, 2016'], ['Hot celebrities drink Campfire-Coffee', 'images/celebs.gif', 'Stars, celebs, and other high-profile people continue to enjoy Campfire-Coffee! You should too!', '2:18PM  -  January 13, 2016'], ['Starbucks stock down: another reason to buy Campfire-Coffee.', 'images/stock.gif', 'Market research shows that as Campfire-Coffee continues to sell dumptrucks full of coffee daily at each of its locations, other coffee shops are struggling to keep up. Experts claim that the trend in sales may be due to the particularly amazing taste of Campfire-Coffee.', '9:24AM  -  January 13, 2016']],
 
-  var divCenter = document.createElement('div'); // Create empty div for logo
-  divCenter.className = 'logoDiv';
-  document.body.appendChild(divCenter);
+  story: 0,
+  i: 0
 
-  var aLogo = document.createElement('a'); // Create link for menu
-  aLogo.setAttribute('href', 'index.html');
-  divCenter.appendChild(aLogo);
+};
 
-  var logoImage = document.createElement('img');
-  logoImage.setAttribute('src', 'logo.gif');
-  logoImage.setAttribute('width', '35%')
-  aLogo.appendChild(logoImage);
+announcements.render = function() {
 
-  var divMenu = document.createElement('div'); // Create empty div for menu
-  divMenu.className = 'logoDiv';
-  document.body.appendChild(divMenu);
+  for (this.story = 0; this.story < 3; this.story++) {
+    var table = document.createElement('table');
+    table.className = 'announceTable';
+    theDiv.appendChild(table);
+    for (this.i = 0; this.i < 4; this.i++) {
+      var row = document.createElement('tr');
+      table.appendChild(row);
+      var column = document.createElement('td');
 
-  for (var i = 0; i < this.menu.length; i++) {
-    var a = document.createElement('a'); // Create link for menu
-    a.setAttribute('href', this.menu[i][0])
-    divMenu.appendChild(a);
+      if (this.i === 0 || this.i === (this.stories[this.story].length - 1)) {
+        column.className = 'headerItem';
+      } else {
+        column.className = 'announcement';
+      }
+      row.appendChild(column);
 
-    this.menuImage.push(document.createElement('img'));
-    this.menuImage[i].className = 'menuButton';
-    this.menuImage[i].setAttribute('src', this.menu[i][1]);
-    a.appendChild(this.menuImage[i]);
-  }
-  header.menuImage[0].onmouseover = function() {
-    header.menuImage[0].setAttribute('src', header.menu[0][2]);
-  }
-  header.menuImage[0].onmouseout = function() {
-    header.menuImage[0].setAttribute('src', header.menu[0][1]);
-  }
-  header.menuImage[1].onmouseover = function() {
-    header.menuImage[1].setAttribute('src', header.menu[1][2]);
-  }
-  header.menuImage[1].onmouseout = function() {
-    header.menuImage[1].setAttribute('src', header.menu[1][1]);
-  }
-  header.menuImage[2].onmouseover = function() {
-    header.menuImage[2].setAttribute('src', header.menu[2][2]);
-  }
-  header.menuImage[2].onmouseout = function() {
-    header.menuImage[2].setAttribute('src', header.menu[2][1]);
-  }
-}
+      if (this.i === 1) {
+        image = document.createElement('img');
+        image.setAttribute('src', this.stories[this.story][this.i]);
+        image.className = 'announcementImg';
+        column.appendChild(image);
+      } else {
+        column.textContent = this.stories[this.story][this.i];
+      };
+    };
+  };
+};
 
-header.render();
+announcements.render();
