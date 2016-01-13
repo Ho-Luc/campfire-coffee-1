@@ -1,36 +1,57 @@
 // Campfire-Coffee Index javascript
 
 var header = {
-  someVar: 4,
+  menu : [['index.html', 'images/home.gif', 'images/homeOver.gif'], ['data.html', 'images/data.gif', 'images/dataOver.gif'], ['contact.html', 'images/contact.gif', 'images/contactOver.gif']],
+  menuImage : [],
 }
 
 header.render = function() {
 
-  divCenter = document.createElement('div'); // Create empty div for logo
+  var divCenter = document.createElement('div'); // Create empty div for logo
   divCenter.className = 'logoDiv';
   document.body.appendChild(divCenter);
 
-  logoImage = document.createElement('img');
+  var aLogo = document.createElement('a'); // Create link for menu
+  aLogo.setAttribute('href', 'index.html');
+  divCenter.appendChild(aLogo);
+
+  var logoImage = document.createElement('img');
   logoImage.setAttribute('src', 'logo.gif');
   logoImage.setAttribute('width', '35%')
-  divCenter.appendChild(logoImage);
+  aLogo.appendChild(logoImage);
 
-  divMenu = document.createElement('div'); // Create empty div for menu
+  var divMenu = document.createElement('div'); // Create empty div for menu
   divMenu.className = 'logoDiv';
   document.body.appendChild(divMenu);
 
-  menuImage1 = document.createElement('img');
-  menuImage1.className = 'menuButton';
-  menuImage1.setAttribute('src', 'images/home.gif');
-  divMenu.appendChild(menuImage1);
-  menuImage2 = document.createElement('img');
-  menuImage2.className = 'menuButton';
-  menuImage2.setAttribute('src', 'images/data.gif');
-  divMenu.appendChild(menuImage2);
-  menuImage3 = document.createElement('img');
-  menuImage3.className = 'menuButton';
-  menuImage3.setAttribute('src', 'images/contact.gif');
-  divMenu.appendChild(menuImage3);
+  for (var i = 0; i < this.menu.length; i++) {
+    var a = document.createElement('a'); // Create link for menu
+    a.setAttribute('href', this.menu[i][0])
+    divMenu.appendChild(a);
+
+    this.menuImage.push(document.createElement('img'));
+    this.menuImage[i].className = 'menuButton';
+    this.menuImage[i].setAttribute('src', this.menu[i][1]);
+    a.appendChild(this.menuImage[i]);
+  }
+  header.menuImage[0].onmouseover = function() {
+    header.menuImage[0].setAttribute('src', header.menu[0][2]);
+  }
+  header.menuImage[0].onmouseout = function() {
+    header.menuImage[0].setAttribute('src', header.menu[0][1]);
+  }
+  header.menuImage[1].onmouseover = function() {
+    header.menuImage[1].setAttribute('src', header.menu[1][2]);
+  }
+  header.menuImage[1].onmouseout = function() {
+    header.menuImage[1].setAttribute('src', header.menu[1][1]);
+  }
+  header.menuImage[2].onmouseover = function() {
+    header.menuImage[2].setAttribute('src', header.menu[2][2]);
+  }
+  header.menuImage[2].onmouseout = function() {
+    header.menuImage[2].setAttribute('src', header.menu[2][1]);
+  }
 }
 
 header.render();
