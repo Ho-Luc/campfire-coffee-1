@@ -6,7 +6,8 @@
   width: 100%;
 }
 .shopTable {
-  margin: 4px;
+  background-color: #e7d5b2;
+  margin: 12px;
   width: 84%;
   float: right;
   position: relative;
@@ -15,7 +16,8 @@
   padding: 2px;
 }
 .announceTable {
-  margin: 4px;
+  background-color: #e7d5b2;
+  margin: 12px;
   width: 74%;
   float: right;
   position: relative;
@@ -25,30 +27,42 @@
 }
 .headerItem {
   padding: 3px;
-  background-color: #F0F0F0;
+  background-color: #d6b385;
   border: 1px solid black;
   text-align: center;
   width: 150px;
   font-weight: bold;
   font-family: Garamond;
 }
+.footerItem {
+  padding: 3px;
+  background-color: #f0daae;
+  border: 1px solid black;
+  text-align: right;
+  width: 150px;
+  font-family: Garamond;
+}
 .tableItem {
   padding: 2px;
-  background-color: #F8F8F8;
+  background-color: #f5ecd9;
   text-align: right;
   font-style: italic;
 }
 .announcement {
   padding: 12px;
-  background-color: #F8F8F8;
+  background-color: #f5ecd9;
   text-align: center;
 }
 .tableInput {
-  background-color: #F8F8F8;
+  background-color: #f5ecd9;
   text-align: left;
   font-style: italic;
 }
 .announcementImg {
   padding: 2px;
   border: 1px solid black;
+}
+.scrollingImg {
+  width: 42%;
+  position:fixed;
 }
