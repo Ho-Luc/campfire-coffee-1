@@ -1,3 +1,10 @@
+.menuButton {
+  width: 5%;
+}
+.logoDiv {
+  text-align: center;
+  width: 100%;
+}
 .shopTable {
   border: 2px solid black;
   padding: 2px;
