@@ -7,7 +7,7 @@
 }
 .shopTable {
   background-color: #e7d5b2;
-  margin: 4px;
+  margin: 12px;
   width: 84%;
   float: right;
   position: relative;
@@ -17,7 +17,7 @@
 }
 .announceTable {
   background-color: #e7d5b2;
-  margin: 4px;
+  margin: 12px;
   width: 74%;
   float: right;
   position: relative;
@@ -61,4 +61,8 @@
 .announcementImg {
   padding: 2px;
   border: 1px solid black;
+}
+.scrollingImg {
+  width: 42%;
+  position:fixed;
 }

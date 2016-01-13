@@ -3,11 +3,16 @@
 var theDiv;
 
 var header = {
-  menu : [['index.html', 'images/home.gif', 'images/homeOver.gif'], ['data.html', 'images/data.gif', 'images/dataOver.gif'], ['contact.html', 'images/contact.gif', 'images/contactOver.gif']],
+  menu : [['index.html', 'images/home.gif', 'images/homeOver.gif'], ['data.html', 'images/data.gif', 'images/dataOver.gif'], ['contact.html', 'images/contact.gif', 'images/contactOver.gif'], ['store.html', 'images/store.gif', 'images/storeOver.gif']],
   menuImage : [],
 }
 
 header.render = function() {
+
+  var pine = document.createElement('img'); // Create an img element for the pine tree
+  pine.setAttribute('src', 'images/pine.png');
+  pine.className = 'scrollingImg';
+  document.body.appendChild(pine);
 
   var divCenter = document.createElement('div'); // Create empty div for logo
   divCenter.className = 'logoDiv';
@@ -53,6 +58,12 @@ header.render = function() {
   }
   header.menuImage[2].onmouseout = function() {
     header.menuImage[2].setAttribute('src', header.menu[2][1]);
+  }
+  header.menuImage[3].onmouseover = function() {
+    header.menuImage[3].setAttribute('src', header.menu[3][2]);
+  }
+  header.menuImage[3].onmouseout = function() {
+    header.menuImage[3].setAttribute('src', header.menu[3][1]);
   }
 
   spacer = document.createElement('br');

@@ -2,7 +2,7 @@
 
 var announcements = {
 
-  stories: [['Are you getting enough Campfire-Coffee? Our product may be vital for neural development.', 'images/family.jpg', 'Cutting edge research performed as a joint effort by experts at Harvard, Columbia and MIT shows that a lack of Campfire-Coffee may result in a number of developmental and behavioural issues in children and adults alike. Professor of Quackery Nick Senger from some prestigious university in Europe reports: \"Campfire-Coffee seems to trigger activity in the PKCR-B2 network - a portion of the central nervous system that we\'re only beginning to understand. Essentially, the system is responsible for signaling in the brain that\'s vital for growth, intelligence, beauty, success and happy families. So far the studies have only been done in mice, so I\'d be hesitant to extend the results to humans, but I\'m not hesitant to recommend you buy a cup of Campfire-Coffee, because they are paying me so much.\"', '1:48PM  -  January 13, 2016'], ['Celebrating 10 years of Campfire-Coffee History!', 'images/cc-history.jpg', 'On January 13, 2006, web developer Nick Senger brewed the first cup of Campfire-Coffee while on a 500 mile trek through the Siberian wilderness. Isn\'t he a badass? Since then, hundreds of thousands of happy customers have enjoyed the signature smokey, rich, delectable taste of Campfire-Coffee. Join us today in celebrating the 10th anniversary of our delicious brew by having a rich, refreshing cup of Campfire-Coffee!', '1:33PM  -  January 13, 2016'], ['Campfire-Coffee reaches 1 million sales', 'images/million.gif', 'We sold a million cups of coffee! Yay, we\'re rich!', '4:00PM - January 13, 2016'], ['Hot celebrities drink Campfire-Coffee', 'images/celebs.gif', 'Stars, celebs, and other high-profile people continue to enjoy Campfire-Coffee! You should too!', '2:18PM  -  January 13, 2016'], ['Starbucks stock down: another reason to buy Campfire-Coffee.', 'images/stock.gif', 'Market research shows that as Campfire-Coffee continues to sell dumptrucks full of coffee daily at each of its locations, other coffee shops are struggling to keep up. Experts claim that the trend in sales may be due to the particularly amazing taste of Campfire-Coffee.', '9:24AM  -  January 13, 2016']],
+  stories: [['Give the gift of Campfire-Coffee!', 'images/campfire.jpg', 'Strugging to find a valentine\'s day gift? Why not give that special someone the gift they really want? A fat giftcard for Campfire-Coffee! Available in $200 and $500 sizes.', '1:55PM  -  January 13, 2016'], ['Campfire-Coffee Tents now available!', 'images/tent.jpg', 'By popular demand, we\'ve added custom themed Campfire-Coffee tents to our catalogue! Order now and receive a $2 giftcard for Campfire-Coffee ABSOLUTELY FREE! Don\'t miss this amazing opportunity to drink Campfire-Coffee in your Campfire-Coffee tent whilst enjoying the great outdoors next to an actual campfire! (Campfire-Coffee sold separately)', '2:02PM  -  January 13, 2016']],
 
   story: 0,
   i: 0
@@ -46,7 +46,7 @@ var contentGenerator = {
   inputText: [],
   stories: [this.input],
   inputID: ['title', 'image', 'content', 'time'],
-  labelContent: ['Title:', 'Image Location', 'Text Content:', 'Time:'],
+  labelContent: ['Product Title:', 'Image Location', 'Description:', 'Time:'],
 };
 
 contentGenerator.render = function() {
@@ -58,7 +58,7 @@ contentGenerator.render = function() {
   var headColumn = document.createElement('td');
   headColumn.setAttribute('colspan', '2');
   headColumn.className = 'headerItem';
-  headColumn.textContent = 'Add Content:'
+  headColumn.textContent = 'Add Item to Store:'
   headRow.appendChild(headColumn);
   for (var i = 0; i < this.labelContent.length; i++) {
     var row = document.createElement('tr');
