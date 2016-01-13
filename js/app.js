@@ -139,7 +139,7 @@ function coffeeShop(id, location, minimum, maximum, cups, pounds) {
     var rowBot = document.createElement('tr'); // Create empty row for store name
     table.appendChild(rowBot);
     var colBot = document.createElement('td'); // Create empty row for store name
-    colBot.className = 'headerItem';
+    colBot.className = 'footerItem';
     colBot.setAttribute('colspan', '5');
     colBot.textContent = 'A total of ' + this.globals[1] + ' pounds must be roasted for the ' + this.loc + ' store today.';
     table.appendChild(colBot);
