@@ -84,7 +84,7 @@ function coffeeShop(id, location, minimum, maximum, cups, pounds) {
     this.globals.push(this.loc);
     this.globals.push(Math.round(sumLbs * 10) / 10);
     this.globals.push(Math.round(sumCust * 10) / 10);
-    this.globals.push(Math.round(sumCups * 10) / 10 + ' (' + Math.round(sumCupsLbs * 10) / 10 + ')');
+    this.globals.push(Math.round(sumCups * 10) / 10 + ' (' + Math.round(sumCupsLbs * 10) / 10 + ')'); /* Pushes Rounded String for the cups(lbs) column */
     this.globals.push(Math.round(sumLbstoGo * 10) / 10);
     console.log('A total of ' + this.globals[0] + ' pounds must be roasted for the ' + this.loc + ' store.');
   };
@@ -122,7 +122,7 @@ function coffeeShop(id, location, minimum, maximum, cups, pounds) {
       entryColumn.className = 'tableItem';
       contentRow.appendChild(entryColumn);
     }
-    var contentRow = document.createElement('tr'); // now populate the global table
+    var contentRow = document.createElement('tr'); // now populate the global1 table
     globTable1.appendChild(contentRow);             // rows first
     for (var i = 0; i < this.globals1.length; i++) { // Then columns
       var entryColumn = document.createElement('td');
@@ -138,8 +138,60 @@ function coffeeShop(id, location, minimum, maximum, cups, pounds) {
   coffeeShops.push(this.identity);
 };
 
+var newShop = {
+  button: document.createElement('input'),
+  input: [],
+  inputID: ['id', 'loc', 'min', 'max', 'cups', 'pounds'],
+  labelContent: ['ID:', 'Location', 'Minimum customers per hour:', 'Maximum customers per hour:', 'Average number of cups purchased per customer:', 'Average pounds of coffee purchased per customer:'],
+
+  render: function() {
+    var table = document.createElement('table');
+    table.className = 'shopTable';
+    document.body.appendChild(table);
+    var headRow = document.createElement('tr');
+    table.appendChild(headRow);
+    var headColumn = document.createElement('td');
+    headColumn.setAttribute('colspan', '2');
+    headColumn.className = 'headerItem';
+    headColumn.textContent = 'Create a new Shop:'
+    headRow.appendChild(headColumn);
+    for (var i = 0; i < this.labelContent.length; i++) {
+      var row = document.createElement('tr');
+      table.appendChild(row);
+      var column1 = document.createElement('td');
+      column1.className = 'tableItem';
+      row.appendChild(column1);
+      var label = document.createElement('label');
+      label.textContent = this.labelContent[i];
+      column1.appendChild(label);
+      var column2 = document.createElement('td');
+      column2.className = 'tableItem';
+      row.appendChild(column2);
+      this.input.push(document.createElement('input'));
+      this.input[i].type = 'text';
+      column2.appendChild(this.input[i]);
+    };
+    var footRow = document.createElement('tr');
+    table.appendChild(footRow);
+    var footColumn = document.createElement('td');
+    footColumn.setAttribute('colspan', '2');
+    footColumn.className = 'headerItem';
+    footRow.appendChild(footColumn);
+    this.button.setAttribute('type', 'submit');
+    this.button.setAttribute('value', 'Submit');
+    footColumn.appendChild(this.button);
+  }
+}
+
+newShop.button.onsubmit = function() {
+  console.log('blah');
+}
+
 globalRender1();
 globalRender();
+newShop.render();
+
+
 
 var pikePlace = new coffeeShop('pikePlace', 'Pike Place Market', 14, 55, 1.2, 3.7);
 pikePlace.printShop();
