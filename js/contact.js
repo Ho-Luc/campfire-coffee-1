@@ -2,7 +2,7 @@
 
 var announcements = {
 
-  stories: [['Campfire-Coffee reaches 1 million sales', 'images/million.gif', 'We sold a million cups of coffee! Yay, we\'re rich!', '4:00PM - January 13, 2016'], ['Hot celebrities drink Campfire-Coffee', 'images/celebs.gif', 'Stars, celebs, and other high-profile people continue to enjoy Campfire-Coffee! You should too!', '2:18PM  -  January 13, 2016'], ['Starbucks stock down: another reason to buy Campfire-Coffee.', 'images/stock.gif', 'Market research shows that as Campfire-Coffee continues to sell dumptrucks full of coffee daily at each of its locations, other coffee shops are struggling to keep up. Experts claim that the trend in sales may be due to the particularly amazing taste of Campfire-Coffee.', '9:24AM  -  January 13, 2016']],
+  stories: [['Questions or comments for Campfire-Coffee? We\'d love to hear from you!', 'images/contactUs.gif', 'Email us at: noOneChecksThis@campfire-coffee.com', '2:38PM - January 13, 2016']],
 
   story: 0,
   i: 0

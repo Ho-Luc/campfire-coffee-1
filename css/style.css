@@ -6,6 +6,7 @@
   width: 100%;
 }
 .shopTable {
+  margin: 4px;
   width: 84%;
   float: right;
   position: relative;
@@ -13,7 +14,17 @@
   border: 2px solid black;
   padding: 2px;
 }
+.announceTable {
+  margin: 4px;
+  width: 74%;
+  float: right;
+  position: relative;
+  left: -13%;
+  border: 2px solid black;
+  padding: 2px;
+}
 .headerItem {
+  padding: 3px;
   background-color: #F0F0F0;
   border: 1px solid black;
   text-align: center;
@@ -22,12 +33,22 @@
   font-family: Garamond;
 }
 .tableItem {
+  padding: 2px;
   background-color: #F8F8F8;
   text-align: right;
   font-style: italic;
+}
+.announcement {
+  padding: 12px;
+  background-color: #F8F8F8;
+  text-align: center;
 }
 .tableInput {
   background-color: #F8F8F8;
   text-align: left;
   font-style: italic;
+}
+.announcementImg {
+  padding: 2px;
+  border: 1px solid black;
 }
