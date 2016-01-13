@@ -1,8 +1,75 @@
 // Campfire-Coffee Shop
 
+var theDiv;
+
+var header = {
+  menu : [['index.html', 'images/home.gif', 'images/homeOver.gif'], ['data.html', 'images/data.gif', 'images/dataOver.gif'], ['contact.html', 'images/contact.gif', 'images/contactOver.gif']],
+  menuImage : [],
+}
+
+header.render = function() {
+
+  var divCenter = document.createElement('div'); // Create empty div for logo
+  divCenter.className = 'logoDiv';
+  document.body.appendChild(divCenter);
+
+  var aLogo = document.createElement('a'); // Create link for menu
+  aLogo.setAttribute('href', 'index.html');
+  divCenter.appendChild(aLogo);
+
+  var logoImage = document.createElement('img');
+  logoImage.setAttribute('src', 'logo.gif');
+  logoImage.setAttribute('width', '35%')
+  aLogo.appendChild(logoImage);
+
+  var divMenu = document.createElement('div'); // Create empty div for menu
+  divMenu.className = 'logoDiv';
+  document.body.appendChild(divMenu);
+
+  for (var i = 0; i < this.menu.length; i++) {
+    var a = document.createElement('a'); // Create link for menu
+    a.setAttribute('href', this.menu[i][0])
+    divMenu.appendChild(a);
+
+    this.menuImage.push(document.createElement('img'));
+    this.menuImage[i].className = 'menuButton';
+    this.menuImage[i].setAttribute('src', this.menu[i][1]);
+    a.appendChild(this.menuImage[i]);
+  }
+  header.menuImage[0].onmouseover = function() {
+    header.menuImage[0].setAttribute('src', header.menu[0][2]);
+  }
+  header.menuImage[0].onmouseout = function() {
+    header.menuImage[0].setAttribute('src', header.menu[0][1]);
+  }
+  header.menuImage[1].onmouseover = function() {
+    header.menuImage[1].setAttribute('src', header.menu[1][2]);
+  }
+  header.menuImage[1].onmouseout = function() {
+    header.menuImage[1].setAttribute('src', header.menu[1][1]);
+  }
+  header.menuImage[2].onmouseover = function() {
+    header.menuImage[2].setAttribute('src', header.menu[2][2]);
+  }
+  header.menuImage[2].onmouseout = function() {
+    header.menuImage[2].setAttribute('src', header.menu[2][1]);
+  }
+
+  spacer = document.createElement('br');
+  document.body.appendChild(spacer);
+
+  theDiv = document.createElement('div');
+  theDiv.className = 'logoDiv';
+  document.body.appendChild(theDiv);
+
+}
+
+header.render();
+
+
 var headers = ['Hours', 'Total Lbs', 'Customers', 'Cups (Lbs)', 'Lbs To-Go'];
 var globalHeaders = ['Location', 'Total Lbs', 'Total Customers', 'Total Cups (Lbs)', 'Total Lbs To-Go'];
-var globalHeaders1 = ['Location', '6:00AM', '7:00AM', '8:00AM', '9:00AM', '10:00AM', '11:00AM', 'Noon', '1:00PM', '2:00PM', '3:00PM', '4:00PM', '5:00PM', '6:00PM', '7:00PM', '8:00PM', 'Total Lbs'];
+var globalHeaders1 = ['Location', '6 AM', '7 AM', '8 AM', '9 AM', '10 AM', '11MAM', 'Noon', '1 PM', '2 PM', '3 PM', '4 PM', '5 PM', '6 PM', '7 PM', '8 PM', 'Total Lbs'];
 var coffeeShops = [];
 var globTable;
 var globTable1;
@@ -10,7 +77,7 @@ var globTable1;
 function globalRender1() {
   globTable1 = document.createElement('table'); // Create empty table for content
   globTable1.className = 'shopTable';
-  document.body.appendChild(globTable1);
+  theDiv.appendChild(globTable1);
   var row1 = document.createElement('tr'); // Create empty row for titles
   globTable1.appendChild(row1);
   for (var i = 0; i < globalHeaders1.length; i++) { // Populate header row
@@ -24,7 +91,7 @@ function globalRender1() {
 function globalRender() {
   globTable = document.createElement('table'); // Create empty table for content
   globTable.className = 'shopTable';
-  document.body.appendChild(globTable);
+  theDiv.appendChild(globTable);
   var row1 = document.createElement('tr'); // Create empty row for titles
   globTable.appendChild(row1);
   for (var i = 0; i < globalHeaders.length; i++) { // Populate header row
@@ -89,12 +156,16 @@ function coffeeShop(id, location, minimum, maximum, cups, pounds) {
     console.log('A total of ' + this.globals[0] + ' pounds must be roasted for the ' + this.loc + ' store.');
   };
   this.printShop = function() {
-    var headerEl = document.createElement('h3'); // Print out header for the current shop
-    headerEl.textContent = this.loc + ' Store:';
-    document.body.appendChild(headerEl);
     var table = document.createElement('table'); // Create empty table for content
     table.className = 'shopTable';
-    document.body.appendChild(table);
+    theDiv.appendChild(table);
+    var rowTop = document.createElement('tr'); // Create empty row for store name
+    table.appendChild(rowTop);
+    var colTop = document.createElement('td'); // Create empty row for store name
+    colTop.className = 'headerItem';
+    colTop.setAttribute('colspan', '5');
+    colTop.textContent = this.loc + ' Store:';
+    table.appendChild(colTop);
     var row1 = document.createElement('tr'); // Create empty row for titles
     table.appendChild(row1);
     for (var i = 0; i < headers.length; i++) { // Populate Headers
@@ -131,8 +202,14 @@ function coffeeShop(id, location, minimum, maximum, cups, pounds) {
       contentRow.appendChild(entryColumn);
     }
     var total = document.createElement('li'); // Print total number of cups needed to unordered list
-    total.textContent = 'A total of ' + this.globals[1] + ' pounds must be roasted for the ' + this.loc + ' store today.';
-    document.body.appendChild(total);
+
+    var rowBot = document.createElement('tr'); // Create empty row for store name
+    table.appendChild(rowBot);
+    var colBot = document.createElement('td'); // Create empty row for store name
+    colBot.className = 'headerItem';
+    colBot.setAttribute('colspan', '5');
+    colBot.textContent = 'A total of ' + this.globals[1] + ' pounds must be roasted for the ' + this.loc + ' store today.';
+    table.appendChild(colBot);
   }
   console.log('Created new shop at ' + location + '.');
   coffeeShops.push(this.identity);
@@ -147,7 +224,7 @@ var newShop = {
   render: function() {
     var table = document.createElement('table');
     table.className = 'shopTable';
-    document.body.appendChild(table);
+    theDiv.appendChild(table);
     var headRow = document.createElement('tr');
     table.appendChild(headRow);
     var headColumn = document.createElement('td');
@@ -165,7 +242,7 @@ var newShop = {
       label.textContent = this.labelContent[i];
       column1.appendChild(label);
       var column2 = document.createElement('td');
-      column2.className = 'tableItem';
+      column2.className = 'tableInput';
       row.appendChild(column2);
       this.input.push(document.createElement('input'));
       this.input[i].type = 'text';

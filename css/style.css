@@ -1,4 +1,15 @@
+.menuButton {
+  width: 5%;
+}
+.logoDiv {
+  text-align: center;
+  width: 100%;
+}
 .shopTable {
+  width: 84%;
+  float: right;
+  position: relative;
+  left: -8%;
   border: 2px solid black;
   padding: 2px;
 }
@@ -13,5 +24,10 @@
 .tableItem {
   background-color: #F8F8F8;
   text-align: right;
+  font-style: italic;
+}
+.tableInput {
+  background-color: #F8F8F8;
+  text-align: left;
   font-style: italic;
 }
