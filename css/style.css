@@ -1,8 +1,37 @@
-.menuButton {
-  width: 5%;
+.scrollingImg {
+  width: 42%;
+  position: fixed;
+  z-index: -2;
+}
+.scrollingFire {
+  width: 30%;
+  position: fixed;
+  right: 7%;
+  z-index: -1;
 }
 .logoDiv {
+  position: relative;
   text-align: center;
+  z-index: -3;
+}
+.menuDiv {
+  text-align: center;
+}
+.menuButton {
+  width: 5%;
+  z-index: 1;
+}
+.logo {
+}
+.bodyDiv1 {
+  float: left;
+  width: 50%;
+}
+.bodyDiv2 {
+  float: right;
+  width: 50%;
+}
+.bodyDiv3 {
   width: 100%;
 }
 .shopTable {
@@ -19,12 +48,25 @@
   font-family: Garamond;
   background-color: #e7d5b2;
   margin: 12px;
-  width: 74%;
-  float: right;
-  position: relative;
-  left: -13%;
+  width: 95%;
+  z-index: 5000;
   border: 2px solid black;
   padding: 2px;
+  float: right;
+  left: -1%;
+  position: relative;
+}
+.contactTable {
+  font-family: Garamond;
+  background-color: #e7d5b2;
+  margin: 12px;
+  width: 40%;
+  z-index: 5000;
+  border: 2px solid black;
+  padding: 2px;
+  float: right;
+  left: -30%;
+  position: relative;
 }
 .headerItem {
   padding: 3px;
@@ -62,8 +104,5 @@
 .announcementImg {
   padding: 2px;
   border: 1px solid black;
-}
-.scrollingImg {
-  width: 42%;
-  position:fixed;
+  width: 90%;
 }
