@@ -204,6 +204,10 @@ var newShop = {
 newShop.submitForm = function() { // Creates a new coffee shop with values stored in the input elements
   var shop = new coffeeShop(newShop.input[0].value, newShop.input[1].value, parseFloat(newShop.input[2].value), parseFloat(newShop.input[3].value), parseFloat(newShop.input[4].value), parseFloat(newShop.input[5].value));
   shop.printShop();
+  for (var i = 0; i < newShop.input.length; i++) {
+    newShop.input[i].value = null;
+
+  }
 };
 
 
