@@ -7,6 +7,10 @@ var coffeeShops = [];
 var globTable;
 var globTable1;
 
+var theDiv = document.createElement('div');
+theDiv.className = 'bodyDiv3';
+document.body.appendChild(theDiv);
+
 function globalRender1() {
   globTable1 = document.createElement('table'); // Create empty table for content
   globTable1.className = 'shopTable';
@@ -52,9 +56,11 @@ function coffeeShop(id, location, minimum, maximum, cups, pounds) {
   this.globals = []; // Array storing values for the globalRender function
   this.globals1 = [];
   this.hourValues = [this.hours, this.totalLbs, this.custNum, this.cupsClmn, this.lbsArray];
+
   this.findCust = function() { // Generates an estimated number of customers for store
     this.custNum.push(Math.round(Math.random() * (this.max - this.min)) + this.min);
   };
+
   this.coffeeCount = function() { // Fills array with number of cups and total (round to tenths when printing for cleanliness)
     var sumLbs = 0;
     var sumCust = 0;
@@ -88,6 +94,7 @@ function coffeeShop(id, location, minimum, maximum, cups, pounds) {
     this.globals.push(Math.round(sumLbstoGo * 10) / 10);
     console.log('A total of ' + this.globals[0] + ' pounds must be roasted for the ' + this.loc + ' store.');
   };
+
   this.printShop = function() {
     var table = document.createElement('table'); // Create empty table for content
     table.className = 'shopTable';
@@ -189,13 +196,13 @@ var newShop = {
     footRow.appendChild(footColumn);
     this.button.setAttribute('type', 'submit');
     this.button.setAttribute('value', 'Submit');
-    this.button.setAttribute('onclick', 'newShop.submitForm()');
+    this.button.addEventListener('click', this.submitForm, false);
     footColumn.appendChild(this.button);
   }
 }
 
 newShop.submitForm = function() { // Creates a new coffee shop with values stored in the input elements
-  var shop = new coffeeShop(this.input[0].value, this.input[1].value, parseFloat(this.input[2].value), parseFloat(this.input[3].value), parseFloat(this.input[4].value), parseFloat(this.input[5].value));
+  var shop = new coffeeShop(newShop.input[0].value, newShop.input[1].value, parseFloat(newShop.input[2].value), parseFloat(newShop.input[3].value), parseFloat(newShop.input[4].value), parseFloat(newShop.input[5].value));
   shop.printShop();
 };
 

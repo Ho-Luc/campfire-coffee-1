@@ -9,11 +9,15 @@ var announcements = {
 
 };
 
+var theDiv = document.createElement('div');
+theDiv.className = 'bodyDiv3';
+document.body.appendChild(theDiv);
+
 announcements.render = function() {
 
   for (this.story = 0; this.story < this.stories.length; this.story++) {
     var table = document.createElement('table');
-    table.className = 'announceTable';
+    table.className = 'contactTable';
     theDiv.appendChild(table);
     for (this.i = 0; this.i < this.stories[this.story].length; this.i++) {
       var row = document.createElement('tr');

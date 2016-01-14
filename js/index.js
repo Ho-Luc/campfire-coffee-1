@@ -9,12 +9,24 @@ var announcements = {
 
 };
 
+var column1 = document.createElement('div');
+column1.className = 'bodyDiv1';
+document.body.appendChild(column1);
+
+var column2 = document.createElement('div');
+column2.className = 'bodyDiv2';
+document.body.appendChild(column2);
+
 announcements.render = function() {
 
   for (this.story = 0; this.story < this.stories.length; this.story++) {
     var table = document.createElement('table');
     table.className = 'announceTable';
-    theDiv.appendChild(table);
+    if (this.story % 2 === 0) {
+      column1.appendChild(table);
+    } else {
+      column2.appendChild(table);
+    }
     for (this.i = 0; this.i < this.stories[this.story].length; this.i++) {
       var row = document.createElement('tr');
       table.appendChild(row);
@@ -52,7 +64,7 @@ var contentGenerator = {
 contentGenerator.render = function() {
   var table = document.createElement('table');
   table.className = 'announceTable';
-  theDiv.appendChild(table);
+  document.body.appendChild(table);
   var headRow = document.createElement('tr');
   table.appendChild(headRow);
   var headColumn = document.createElement('td');
@@ -84,7 +96,7 @@ contentGenerator.render = function() {
   footRow.appendChild(footColumn);
   this.button.setAttribute('type', 'submit');
   this.button.setAttribute('value', 'Submit');
-  this.button.setAttribute('onclick', 'contentGenerator.submitForm()');
+  this.button.addEventListener('click', contentGenerator.submitForm, false);
   footColumn.appendChild(this.button);
 }
 
@@ -92,28 +104,34 @@ contentGenerator.submitForm = function() {
 
     var table = document.createElement('table');
     table.className = 'announceTable';
-    theDiv.insertBefore(table, theDiv.childNodes[0]);
-    for (this.i = 0; this.i < this.inputText.length; this.i++) {
+    if (announcements.story % 2 === 0) {
+      column1.insertBefore(table, column1.childNodes[0]);
+      announcements.story++;
+    } else {
+      column2.insertBefore(table, column2.childNodes[0]);
+      announcements.story++;
+    };
+    for (contentGenerator.i = 0; contentGenerator.i < contentGenerator.inputText.length; contentGenerator.i++) {
       var row = document.createElement('tr');
       table.appendChild(row);
       var column = document.createElement('td');
 
-      if (this.i === 0) {
+      if (contentGenerator.i === 0) {
         column.className = 'headerItem';
-      } else if (this.i === (this.inputText.length - 1)) {
+      } else if (contentGenerator.i === (contentGenerator.inputText.length - 1)) {
         column.className = 'footerItem';
       } else {
         column.className = 'announcement';
       }
       row.appendChild(column);
 
-      if (this.i === 1) {
+      if (contentGenerator.i === 1) {
         image = document.createElement('img');
-        image.setAttribute('src', this.inputText[this.i].value);
+        image.setAttribute('src', contentGenerator.inputText[contentGenerator.i].value);
         image.className = 'announcementImg';
         column.appendChild(image);
       } else {
-        column.textContent = this.inputText[this.i].value;
+        column.textContent = contentGenerator.inputText[contentGenerator.i].value;
       };
     };
 };

@@ -14,21 +14,28 @@ header.render = function() {
   pine.className = 'scrollingImg';
   document.body.appendChild(pine);
 
+  var fire = document.createElement('img'); // Create an img element for the pine tree
+  fire.setAttribute('src', 'images/campfire.gif');
+  fire.className = 'scrollingFire';
+  document.body.appendChild(fire);
+
   var divCenter = document.createElement('div'); // Create empty div for logo
   divCenter.className = 'logoDiv';
   document.body.appendChild(divCenter);
 
-  var aLogo = document.createElement('a'); // Create link for menu
+  var aLogo = document.createElement('a'); // Create link for logo
   aLogo.setAttribute('href', 'index.html');
+  aLogo.className = 'logo';
   divCenter.appendChild(aLogo);
 
   var logoImage = document.createElement('img');
   logoImage.setAttribute('src', 'logo.gif');
   logoImage.setAttribute('width', '35%')
+  logoImage.className = 'logo';
   aLogo.appendChild(logoImage);
 
-  var divMenu = document.createElement('div'); // Create empty div for menu
-  divMenu.className = 'logoDiv';
+  var divMenu = document.createElement('div'); // Create empty div for logo
+  divMenu.className = 'menuDiv';
   document.body.appendChild(divMenu);
 
   for (var i = 0; i < this.menu.length; i++) {
@@ -65,13 +72,6 @@ header.render = function() {
   header.menuImage[3].onmouseout = function() {
     header.menuImage[3].setAttribute('src', header.menu[3][1]);
   }
-
-  spacer = document.createElement('br');
-  document.body.appendChild(spacer);
-
-  theDiv = document.createElement('div');
-  theDiv.className = 'logoDiv';
-  document.body.appendChild(theDiv);
 
 }
 
